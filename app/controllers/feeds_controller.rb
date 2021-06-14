@@ -59,6 +59,7 @@ class FeedsController < ApplicationController
   end
   def confirm
     @feed = Feed.new(feed_params)
+    render :new if @feed.invalid?
   end
   private
     # Use callbacks to share common setup or constraints between actions.
