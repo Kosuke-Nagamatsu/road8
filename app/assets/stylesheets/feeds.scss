@@ -1,3 +1,36 @@
 // Place all the styles related to the feeds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.image_area {
+  padding: 0 30px;
+}
+img {
+  width: 100%;
+}
+.content {
+  width: 580px;
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+}
+.content_text {
+  padding-top: 10px;
+}
+.content ul {
+  padding: 5px;
+}
+form {
+  padding: 15px 0;
+}
