@@ -1,5 +1,9 @@
 <%= form_with(model: feed, local: true, url:confirm_feeds_path) do |form| %>
-  <div class="field">
+  <div class="feed_content">
+    <%= form.label :"What's up?" %>
+    <%= form.text_field :content %>
+  </div>
+  <div class="feed_image">
     <%= form.label :image %>
     <!-- 確認画面から新規作成画面に戻った時に、 -->
     <!-- アップロードした画像を表示させるための記述 -->
