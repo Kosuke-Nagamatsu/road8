@@ -1,10 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Image:</strong>
-  <p>内容: <%= @feed.content %></p>
-  <%= image_tag @feed.image.url %>
-</p>
-
+<p><strong><%= "#{@feed.user.name}さんの投稿" %></strong></p>
+<p>内容: <%= @feed.content %></p>
+<%= image_tag @feed.image.url %>
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
