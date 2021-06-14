@@ -12,6 +12,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1/edit
   def edit
+    redirect_to feeds_path unless current_user == @feed.user
   end
 
   # POST /feeds or /feeds.json
@@ -43,10 +44,14 @@ class FeedsController < ApplicationController
 
   # DELETE /feeds/1 or /feeds/1.json
   def destroy
-    @feed.destroy
-    respond_to do |format|
-      format.html { redirect_to feeds_url, notice: "Feed was successfully destroyed." }
-      format.json { head :no_content }
+    if current_user == @feed.user
+      @feed.destroy
+      respond_to do |format|
+        format.html { redirect_to feeds_url, notice: "Feed was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to feeds_path
     end
   end
   def new
