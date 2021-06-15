@@ -4,10 +4,10 @@
     <p class="content_text col-xs-12"><%= feed.content %></p>
     <div class=image_area><%= image_tag feed.image.url %></div>
     <ul class="row">
-      <li class="col-xs-1"><%= link_to 'Show', feed, class: 'btn btn-default btn-xs' %></li>
+      <%= link_to 'Show', feed, class: 'btn btn-default btn-xs col-xs-1' %>
       <% if current_user == feed.user %>
-        <li class="col-xs-1"><%= link_to 'Edit', edit_feed_path(feed), class: 'btn btn-default btn-xs' %></li>
-        <li class="col-xs-1"><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-xs' %></li>
+        <%= link_to 'Edit', edit_feed_path(feed), class: 'btn btn-default btn-xs col-xs-1' %>
+        <%= link_to 'Delete', feed, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-xs col-xs-1' %>
       <% end %>
     </ul>
   </div>

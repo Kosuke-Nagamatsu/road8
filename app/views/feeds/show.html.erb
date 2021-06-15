@@ -1,5 +1,7 @@
 <p><strong><%= "#{@feed.user.name}さんの投稿" %></strong></p>
 <p>内容: <%= @feed.content %></p>
 <%= image_tag @feed.image.url %>
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<% if current_user == @feed.user %>
+  <%= link_to 'Edit', edit_feed_path(@feed) %> |
+<% end %>
 <%= link_to 'Back', feeds_path %>
