@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   def show
   end
   def edit
-    redirect_to feeds_path unless current_user == @feed.user
+    redirect_to feeds_path unless set_feed_current_user?
   end
   def create
     @feed = current_user.feeds.build(feed_params)
@@ -32,7 +32,7 @@ class FeedsController < ApplicationController
     end
   end
   def destroy
-    if current_user == @feed.user
+    if set_feed_current_user?
       @feed.destroy
       respond_to do |format|
         format.html { redirect_to feeds_url, notice: "Feed was successfully destroyed." }
@@ -59,5 +59,8 @@ class FeedsController < ApplicationController
   end
   def feed_params
     params.require(:feed).permit(:image, :image_cache, :content)
+  end
+  def set_feed_current_user?
+    current_user == @feed.user
   end
 end
