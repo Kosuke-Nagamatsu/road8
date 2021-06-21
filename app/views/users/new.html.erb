@@ -10,7 +10,7 @@
   </div>
 <% end %>
 <%= form_with(model: @user, local: true) do |f| %>
-<div class="flex-container ">
+<div class="flex-container">
   <ul class="list-group">
     <li class="list-group-item"><%= f.label :name %><%= f.text_field :name %></li>
     <li class="list-group-item"><%= f.label :email %><%= f.email_field :email %></li>
